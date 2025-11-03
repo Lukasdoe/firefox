@@ -813,7 +813,7 @@ class PackedType : public T {
   // that may (temporarily) simplify some code.
   bool isEncodedAsJSValueOnEscape() const { return isRefType(); }
 
-  uint32_t size() const {
+  uint64_t size() const {
     switch (tc_.typeCodeAbstracted()) {
       case TypeCode::I8:
         return 1;
