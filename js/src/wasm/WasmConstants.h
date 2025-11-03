@@ -1170,7 +1170,7 @@ static const unsigned MaxStructFields = 10000;
 static const uint64_t MaxMemory32PagesValidation = uint64_t(1) << 16;
 static const uint64_t MaxMemory64PagesValidation = uint64_t(1) << 48;
 static const unsigned MaxStringBytes = 100000;
-static const unsigned MaxModuleBytes = 1024 * 1024 * 1024;
+static const uint64_t MaxModuleBytes = 21474836480;
 static const unsigned MaxFunctionBytes = 7654321;
 static const unsigned MaxArrayNewFixedElements = 10000;
 
@@ -1187,7 +1187,7 @@ static_assert(uint64_t(MaxArrayPayloadBytes) <
 
 static const unsigned MaxTryTableCatches = 10000;
 static const unsigned MaxBrTableElems = 1000000;
-static const unsigned MaxCodeSectionBytes = MaxModuleBytes;
+static const uint64_t MaxCodeSectionBytes = MaxModuleBytes;
 static const unsigned MaxBranchHintValue = 2;
 
 // 512KiB should be enough, considering how Rabaldr uses the stack and

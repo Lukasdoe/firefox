@@ -119,18 +119,18 @@ class ArgTypeVector {
 // should ultimately derive from OpIter::bytecodeOffset.
 
 class BytecodeOffset {
-  static const uint32_t INVALID = UINT32_MAX;
+  static const uint64_t INVALID = UINT64_MAX;
   static_assert(INVALID > wasm::MaxModuleBytes);
-  uint32_t offset_;
+  uint64_t offset_;
 
   WASM_CHECK_CACHEABLE_POD(offset_);
 
  public:
   BytecodeOffset() : offset_(INVALID) {}
-  explicit BytecodeOffset(uint32_t offset) : offset_(offset) {}
+  explicit BytecodeOffset(uint64_t offset) : offset_(offset) {}
 
   bool isValid() const { return offset_ != INVALID; }
-  uint32_t offset() const {
+  uint64_t offset() const {
     MOZ_ASSERT(isValid());
     return offset_;
   }
@@ -1033,7 +1033,7 @@ class CallSiteDesc {
       NO_LINE_OR_BYTECODE + 1;
   static_assert(NO_LINE_OR_BYTECODE < sizeof(wasm::MagicNumber));
   // Limit lines or bytecodes to the maximum module size.
-  static constexpr uint32_t MAX_LINE_OR_BYTECODE_VALUE = wasm::MaxModuleBytes;
+  static constexpr uint64_t MAX_LINE_OR_BYTECODE_VALUE = wasm::MaxModuleBytes;
 
   CallSiteDesc()
       : lineOrBytecode_(NO_LINE_OR_BYTECODE), kind_(CallSiteKind::Func) {}
