@@ -4125,9 +4125,9 @@ static bool DecodeDataSection(Decoder& d, CodeMetadata* codeMeta,
       return d.fail("expected segment size");
     }
 
-    if (segRange.length > MaxDataSegmentLengthPages * PageSize) {
-      return d.fail("segment size too big");
-    }
+    // if (segRange.length > MaxDataSegmentLengthPages * PageSize) {
+    //   return d.fail("segment size too big");
+    // }
 
     segRange.bytecodeOffset = d.currentOffset();
 
